@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Easy CookBook</title>
+    <link rel="stylesheet" href="resources/css/styles.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" >
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <header>Easy Cookbook
+    <button class="button loginAndLogout">Login/Logout</button>
+    </header>
+    <content>
+        <!-- Shows Favorites -->
+        <button class ="button showFavo hidden">Favoriten</button>
+        <div class ="alert hidden">
+            <span class="closebtn">&times;</span>
+            <table class ="table table-striped">
+                <thread>
+                    <tr>
+                        <th> Titel</th>
+                        <th> Rating</th>
+                    </tr>
+                </thread>
+                <tbody class ="tableBody"></tbody>
+            </table>
+            <ul class="alertText"></ul>
+        </div>
+
+        <!-- Show Recipes -->
+        <div class="recipeShower hidden">
+            <span class="closebtnRecipe">&times;</span>
+            <table style = "width:100%" class ="tableRecipeShower table-striped ">
+                <tr class="trRecipeTable">
+                    <th>Titel</th>
+                    <th>Zutaten</th>
+                    <th>Zubereitung</th>
+                </tr>
+            </table>
+        </div>
+        <div class="main_container"></div>
+        <div class="myratings"></div>
+        
+        <!-- Shows the login page -->
+        <div class ="login-container">
+            <input id="txtEmail" type="email" placeholder="Email">
+            <input id="txtPassword" type="password" placeholder="Password">
+
+            <button id="btnLogin" class="button btn-action">Log in</button>
+            <button id="btnSignUp" class="button btn-secondary">Sign in</button>
+            <button id="btnLogout" class="button btn-action hidden">Log out</button>
+            <div class = "loginOutputText"></div>
+        </div>
+        <div id ="loaderAnim" class="loader hidden"></div>
+        
+        <!-- Shows picture-boxes in which ingredients can be dragged -->
+        <div class ="cook-recipe hidden">
+            <div class ="cooking-pot">
+                <img src = "docs/Kochtopf.png"/>
+            </div>
+            <div class ="garbage">
+                <img src="docs/M%C3%BClleimer.png"/>
+            </div>
+        </div>
+        
+        <!-- Shows ingredients currently in the picture-boxes --> 
+        <div class ="current-ingredients hidden">
+            <div class="pot-ingredients">
+                <ul class="potContent"></ul>
+            </div>
+            <div class="garbage-ingredients">
+                <ul class="garbageContent"></ul>
+            </div>
+        </div>
+        
+        <!-- Shows the button with which recipes can be created -->
+        <div class="button create-recipe hidden">Rezept Generieren</div>
+        
+        <!-- Shows the search field for ingredients -->
+        <div class ="ingredient-search-field hidden">
+            <input class="search-field " placeholder="Gesuchte Zutat eingeben">
+            <button class="button search-button">Suche Start</button>
+            <div class="searched-ingredient"></div>
+        </div>
+        
+        <!-- Shows the available ingredients from the database -->
+        <div class ="ingredients-box hidden">
+            <ul class="ingredientsList"></ul>
+        </div>
+        
+        <!-- Shows recipe button -->
+        <div class="recipe-container hidden">
+            <div class="button favorite-button hidden">Favorisieren</div>
+            <ul class="recipeView"></ul>
+        </div>
+    </content>
+
+    <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+    <script src="resources/js/CookBook.js"> </script>
+    <script src="resources/js/CookBookUserProfile.js"></script>
+    <script src="resources/js/CookBookUserProfileData.js"></script>
+    <script src="resources/js/CookBookData.js"> </script>
+    <script src="resources/js/RecipeView.js"> </script>
+    <script src="resources/js/SelectIngredients.js"></script>
+    <script src="resources/js/IngredientView.js"></script>
+    <script src="resources/js/RecipeGenerator.js"></script>
+    <script src="resources/js/LoginView.js"></script>
+    <script src="resources/js/UserProfileFavorites.js"></script>
+    <script src="vendors/event.js"></script>    
+    <script src="vendors/drop.js"></script>    
+    <script>
+        CookBook.init();
+    </script>
+</body>
+</html>
